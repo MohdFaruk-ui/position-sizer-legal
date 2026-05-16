@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service – Position Sizer Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0A0A0B;
+    --surface:  #15161A;
+    --surface2: #1C1D23;
+    --border:   #22242C;
+    --green:    #00D395;
+    --red:      #FF3B5C;
+    --blue:     #5B8DEF;
+    --text:     #C8CAD4;
+    --muted:    #4A4D5E;
+    --heading:  #ECEEF5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  header { margin-bottom: 52px; }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .dot-red   { background: var(--red);   box-shadow: 0 0 6px var(--red); }
+  .dot-blue  { background: var(--blue);  box-shadow: 0 0 6px var(--blue); }
+
+  .terminal-label {
+    margin-left: auto;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 600;
+    color: var(--heading);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  h1 span { color: var(--blue); }
+
+  .meta {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 20px;
+  }
+
+  .meta em { color: var(--blue); font-style: normal; }
+
+  .intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--blue);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 44px;
+    font-size: 14px;
+    color: #8A8D9E;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.7;
+  }
+
+  .intro strong { color: var(--blue); font-weight: 500; }
+
+  section { margin-bottom: 44px; }
+
+  h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h2::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 14px;
+    background: var(--blue);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--blue);
+    flex-shrink: 0;
+  }
+
+  p { color: #8A8D9E; margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  ul { list-style: none; padding: 0; margin: 10px 0; }
+
+  ul li {
+    font-size: 14px;
+    color: #8A8D9E;
+    padding: 5px 0 5px 18px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* Critical warning box */
+  .box-red {
+    background: rgba(255,59,92,0.06);
+    border: 1px solid rgba(255,59,92,0.2);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: #FF8099;
+    font-family: 'Roboto Mono', monospace;
+    margin: 16px 0;
+    line-height: 1.7;
+  }
+
+  .box-red strong { color: var(--red); }
+
+  .box-blue {
+    background: rgba(91,141,239,0.06);
+    border: 1px solid rgba(91,141,239,0.15);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #93B4F7;
+    font-family: 'Roboto Mono', monospace;
+    margin: 14px 0;
+  }
+
+  /* pricing table */
+  .price-table {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 18px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+  }
+
+  .price-row:last-child { border-bottom: none; }
+
+  .price-label { color: #8A8D9E; }
+  .price-value { color: var(--green); font-weight: 500; }
+
+  a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(91,141,239,0.3);
+    transition: border-color 0.2s;
+  }
+  a:hover { border-color: var(--blue); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-brand {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    color: var(--heading);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-brand span { color: var(--green); }
+
+  .footer-links { display: flex; gap: 20px; font-size: 12px; }
+  .footer-links a { color: var(--muted); border-color: transparent; font-family: 'Roboto Mono', monospace; }
+  .footer-links a:hover { color: var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="top-bar">
+      <div class="dot dot-green"></div>
+      <div class="dot dot-red"></div>
+      <div class="dot dot-blue"></div>
+      <span class="terminal-label">LEGAL_DOC // TERMS_OF_SERVICE.md</span>
+    </div>
+    <h1>Terms of<br><span>Service</span></h1>
+    <div class="meta">
+      POSITION SIZER PRO &nbsp;·&nbsp; <em>LAST UPDATED: MAY 2026</em> &nbsp;·&nbsp; v1.0
+    </div>
+  </header>
+
+  <div class="intro">
+    By downloading or using <strong>Position Sizer Pro</strong>, you agree to these Terms. If you do not agree, please do not use the application.
+  </div>
+
+  <!-- 1 -->
+  <section>
+    <h2>01 · Acceptance of Terms</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and the developer of Position Sizer Pro ("we", "us", "our"). By installing or using the app, you confirm you have read, understood, and agreed to these Terms.</p>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2>02 · Not Financial Advice</h2>
+    <div class="box-red">
+      <strong>⚠ CRITICAL DISCLAIMER</strong><br><br>
+      Position Sizer Pro is solely a <strong>mathematical calculator</strong> designed for educational and informational purposes only. It does <strong>NOT</strong> provide financial, investment, or trading advice of any kind.<br><br>
+      Trading in financial markets — including Crypto, Forex, and Stocks — involves a <strong>high degree of risk</strong>. You may lose some or all of your capital. The developer holds <strong>ZERO liability</strong> for any financial losses incurred while using this app.
+    </div>
+    <p>All outputs (position sizes, risk amounts, liquidation prices, lot sizes) are mathematical estimates based solely on the inputs you provide. Always verify calculations independently and consult a qualified financial advisor before making trading decisions.</p>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2>03 · Subscriptions &amp; Payments</h2>
+    <p>Position Sizer Pro offers a <strong>Freemium model</strong> managed entirely via RevenueCat through the Apple App Store and Google Play Store.</p>
+
+    <div class="price-table">
+      <div class="price-row">
+        <span class="price-label">Free Tier</span>
+        <span class="price-value">$0.00 / always</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Pro — Monthly</span>
+        <span class="price-value">$2.99 / mo</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Pro — Annual</span>
+        <span class="price-value">$14.99 / yr</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Pro — Lifetime</span>
+        <span class="price-value">$29.99 once</span>
+      </div>
+    </div>
+
+    <ul>
+      <li>Payment is charged to your Apple ID / Google Play account at the confirmation of purchase.</li>
+      <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</li>
+      <li>You can manage and cancel subscriptions via your App Store / Play Store account settings at any time.</li>
+      <li>Cancelling retains Pro access until the end of the current paid period.</li>
+      <li>Refunds are subject to the refund policy of Apple App Store or Google Play Store respectively.</li>
+    </ul>
+
+    <div class="box-blue">
+      💡 Pro unlocks: Crypto Futures mode, Forex mode, Unlimited Presets, Full Analytics Dashboard, and CSV Export.
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <h2>04 · Eligibility</h2>
+    <p>You must be at least 13 years of age to use Position Sizer Pro. By using the app, you confirm that you meet this requirement. If you are under 18, you confirm you have obtained parental or guardian consent.</p>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <h2>05 · Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Reverse engineer, decompile, or attempt to extract source code from the app.</li>
+      <li>Use the app for any unlawful or fraudulent purpose.</li>
+      <li>Attempt to bypass the paywall, subscription verification, or any security measure.</li>
+      <li>Redistribute, resell, or sublicense any part of the app or its outputs.</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <h2>06 · "As-Is" Software</h2>
+    <p>Position Sizer Pro is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, express or implied. While we strive for mathematical accuracy across all calculation modes, we do not guarantee that outputs will be error-free under all conditions.</p>
+    <p>We reserve the right to modify, suspend, or discontinue any feature of the app at any time without notice.</p>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <h2>07 · Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, the developer of Position Sizer Pro shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including but not limited to financial trading losses — arising from your use of the app.</p>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <h2>08 · Intellectual Property</h2>
+    <p>All content within Position Sizer Pro — including the name, logo, UI design, mathematical engine, and code — is the exclusive intellectual property of the developer, protected by applicable copyright and trademark laws. You are granted a limited, non-exclusive, non-transferable license to use the app for personal, non-commercial purposes.</p>
+  </section>
+
+  <!-- 9 -->
+  <section>
+    <h2>09 · Changes to Terms</h2>
+    <p>We may update these Terms at any time. The "Last Updated" date at the top reflects the most recent revision. Continued use of the app after changes are posted constitutes your acceptance of the updated Terms.</p>
+  </section>
+
+  <!-- 10 -->
+  <section>
+    <h2>10 · Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with applicable law. Any disputes shall be resolved in the appropriate jurisdiction.</p>
+  </section>
+
+  <!-- 11 -->
+  <section>
+    <h2>11 · Contact</h2>
+    <p>For any queries regarding these Terms, contact us directly:</p>
+    <ul>
+      <li>Email: <a href="mailto:mohdfaruk.dev@gmail.com">mohdfaruk.dev@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Position Sizer <span>Pro</span></div>
+    <div class="footer-links">
+      <a href="position-sizer-privacy-policy.html">Privacy Policy</a>
+      <a href="position-sizer-terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
